@@ -1,0 +1,1 @@
+echo "Farò tutto io"
