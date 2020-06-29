@@ -1,15 +1,15 @@
 const simpleGit = require("simple-git/promise");
 const { Octokit } = require("@octokit/rest");
+const fs = require("fs");
 
 const issue_number = process.argv[2];
 
 const git = simpleGit(".");
-const fs = require("fs");
 const configFile = fs.readFileSync("./hackattoni.json", "utf8");
 const {github_token, remote, fork} = JSON.parse(configFile);
 const octokit = new Octokit({ auth: github_token });
 
-const template = fs.readFileSync("./.github/PULL_REQUEST_TEMPLATE/new_feature.md", "utf8");
+const template = fs.readFileSync("./template.md", "utf8");
 
 async function doWork() {
   try {
@@ -41,7 +41,7 @@ async function doWork() {
       title: `#${issue_number} ${title}`,
       head: `${login}:${head}`,
       base: "master",
-      body: template,
+      body: template.replace("#<issue>", `#${issue_number}`),
     });
     console.log("Pull created!");
     await octokit.issues.update({
