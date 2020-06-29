@@ -24,3 +24,12 @@ configure correctly the hackattoni.json with these required info
 - go the desired repo
 - run this command
 `node path_to_this_folder/hackattoni/create_pr.js ISSUE_NUMBER`
+
+
+## Debug
+
+in order to debug go to the run Tab and click "Start Debugging"
+<img src="assets/debug_01.png">
+
+or click **Run** icon on the left
+<img src="assets/debug_02.png">
