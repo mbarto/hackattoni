@@ -5,7 +5,7 @@ It can be used from any local repository
 
 ## What this tool does
 - creates a PR on master branch of a specific remote
-- copy from specified issue number to PR the labels and milestone
+- copy from the specified issue to the PR the labels and milestone
 - it uses a template for the pr body
 
 ## Requirements
