@@ -12,7 +12,7 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}\\create_pr.js",
+			"program": "${workspaceFolder}\\createPR.js",
 			"args": ["1"]
 		}
 	]

@@ -1,15 +1,27 @@
+/*global process*/
 const simpleGit = require("simple-git/promise");
 const { Octokit } = require("@octokit/rest");
 const fs = require("fs");
 
 const issue_number = process.argv[2];
 
+// the following resource will be applied to the cwd (current working directory)
 const git = simpleGit(".");
-const configFile = fs.readFileSync("./hackattoni.json", "utf8");
-const {github_token, remote, fork} = JSON.parse(configFile);
-const octokit = new Octokit({ auth: github_token });
+const configOptions = fs.readFileSync("./configOptions.json", "utf8");
+const {
+  githubToken,
+  remote,
+  fork,
+  templatePath= "./.github/PULL_REQUEST_TEMPLATE.md"
+} = JSON.parse(configOptions);
+if (!githubToken) {
+    console.error("githubToken is missing");
+    process.exit(1);
+}
+const template = fs.readFileSync(templatePath, "utf8");
 
-const template = fs.readFileSync("./template.md", "utf8");
+const octokit = new Octokit({ auth: githubToken });
+
 
 async function doWork() {
   try {
