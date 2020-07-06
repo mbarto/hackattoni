@@ -7,13 +7,13 @@ const issue_number = process.argv[2];
 
 // the following resource will be applied to the cwd (current working directory)
 const git = simpleGit(".");
-const configOptions = fs.readFileSync("./configOptions.json", "utf8");
+const automata = fs.readFileSync("./automata.json", "utf8");
 const {
   githubToken,
   remote,
   fork,
   templatePath= "./.github/PULL_REQUEST_TEMPLATE.md"
-} = JSON.parse(configOptions);
+} = JSON.parse(automata);
 if (!githubToken) {
     console.error("githubToken is missing");
     process.exit(1);

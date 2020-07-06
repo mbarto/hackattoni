@@ -1,4 +1,4 @@
-# hackattoni
+# automata	
 
 A repo containing some tools to automate a github process
 It can be used from any local repository
@@ -14,7 +14,7 @@ NodeJS >= 12 (download [here](https://nodejs.org/it/))
 ## Setup of this repo
 clone the repo locally (only once)
 
-`git clone https://github.com/mbarto/hackattoni.git`
+`git clone https://github.com/mbarto/automata.git`
 
 update dependencies
 
@@ -22,7 +22,7 @@ update dependencies
 
 ## Usage
 In order to use it locally:
-- [required] create in the root the *configOptions.json* file with the following properties
+- [required] create in the root the *automata.json* file with the following properties
 - [optional] create in the templatePath the md file to be used in the pr otherwise a default template will be used
 
 | param |default | note | required |
@@ -44,7 +44,7 @@ In order to use it locally:
 
 **Procedure**
 - go to any repo and open a shell with git bash (or any other)
-- run this command `node path_to_hackattoni_folder/create_pr.js ISSUE_NUMBER`
+- run this command `node path_to_automata_folder/createPR.js ISSUE_NUMBER`
 
 
 ## How to Debug (with VS Code)
